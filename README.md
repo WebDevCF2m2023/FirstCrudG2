@@ -91,3 +91,17 @@ Et le template
     created: src/Repository/ArticleRepository.php
 
 Le premier fichier sera le "mapping - DTO" d'une donnée, le deuxième sera un Manager
+
+### Création du fichier de configuration
+
+On va copier le fichier `.env` en `.env.local` :
+
+    cp .env .env.local
+
+Puis on va modifier la clef secrète
+
+```env
+# .env.local
+
+APP_SECRET=VotreVraiClefSecrete
+```
