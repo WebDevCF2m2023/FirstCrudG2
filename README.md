@@ -105,3 +105,54 @@ Puis on va modifier la clef secrète
 
 APP_SECRET=VotreVraiClefSecrete
 ```
+
+#### Lien vers la database
+
+
+Pour le moment la database activée est en PostgreSQL, on va la commenter avec #
+
+```env
+# .env.local
+
+###> doctrine/doctrine-bundle ###
+
+# DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+DATABASE_URL="mysql://root:@127.0.0.1:3306/firstcrudg2?serverVersion=8.0.31&charset=utf8mb4"
+# DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+# DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+
+###< doctrine/doctrine-bundle ###
+```
+
+
+
+### Création de la database
+
+    php bin/console doctrine:database:create
+    # version raccourcie
+    php bin/console d:d:c
+
+### Migration vers MySQL
+
+    php bin/console make:migration
+
+puis
+
+    php bin/console doctrine:migrations:migrate
+
+### Création du CRUD
+
+    php bin/console make:crud Article
+
+Fichiers installés :
+```
+created: src/Controller/ArticleController.php
+ created: src/Form/ArticleType.php
+ created: templates/article/_delete_form.html.twig
+ created: templates/article/_form.html.twig
+ created: templates/article/edit.html.twig
+ created: templates/article/index.html.twig
+ created: templates/article/new.html.twig
+ created: templates/article/show.html.twig
+ created: tests/Controller/ArticleControllerTest.php
+```
