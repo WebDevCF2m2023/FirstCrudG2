@@ -5,5 +5,10 @@
 {% block body %}
 <div class="container">
     <h1>{{ titre }}</h1>
+    {{ dump(articles) }}
+    {% for item in articles %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+    {% endfor %}
 </div>
 {% endblock %}
