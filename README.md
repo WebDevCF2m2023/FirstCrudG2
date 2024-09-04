@@ -139,6 +139,8 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/firstcrudg2?serverVersion=8.0.31&char
 puis
 
     php bin/console doctrine:migrations:migrate
+    # OU
+    php bin/console d:m:m
 
 ### Création du CRUD
 
